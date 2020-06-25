@@ -33,6 +33,11 @@ Route::get('/', [
 	'uses' => 'SiteController@index',
 ]);
 
+Route::get('berita/informasi', [
+	'uses' => 'SiteController@beritaInfo',
+	'as' => 'berita.info'
+]);
+
 Route::group(['middleware' => 'auth'], function() {
 	// Admin
 	Route::prefix('admin')->group(function() {
