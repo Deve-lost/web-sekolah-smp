@@ -36,13 +36,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $jquin->nama_modul }}</td>
-                            <td>{{ $jquin->kategori }}</td>
+                            <td>{{ ucwords($jquin->kategori) }}</td>
                             <td class="text-center">
-                                <a href="" class="btn btn-sm btn-pink"><i class="ti-download"></i></a>
+                                <a href="{{ route('modul.download', $jquin->id) }}" target="_blank" class="btn btn-sm btn-pink"><i class="ti-download"></i></a>
                             </td>
                             <td>
-                                <a href="#" data-target="#editBerkas" data-toggle="modal" data-id="{{ $jquin->id }}" data-nama="{{ $jquin->nama_berkas }}" data-path="{{ $jquin->path }}" class="btn btn-warning btn-sm"><i class="ti-pencil"></i></a>
-                                <a href="#" onclick="destroy({{ $jquin->id }},'{{ $jquin->nama_berkas }}')" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
+                                <a href="#" data-target="#editModul" data-toggle="modal" data-id="{{ $jquin->id }}" data-kategori="{{ $jquin->kategori }}" data-nama="{{ $jquin->nama_modul }}" data-path="{{ $jquin->path }}" class="btn btn-warning btn-sm"><i class="ti-pencil"></i></a>
+                                <a href="#" onclick="destroy({{ $jquin->id }},'{{ $jquin->nama_modul }}')" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
                         @empty
@@ -61,6 +61,7 @@
 
 <!-- Modal -->
 <x-modul></x-modul>
+<x-editModul></x-editModul>
 @stop
 
 @section('footer')
@@ -81,12 +82,14 @@
     $().DataTable();
 </script>
 
+<x-updateModul></x-updateModul>
+
 <!-- Destroy -->
 <script>
     function destroy(id,nama) {
-        alertify.confirm("Hapus File "+nama+"?", function (ev) {
+        alertify.confirm("Hapus Modul "+nama+"?", function (ev) {
             ev.preventDefault();
-            window.location = "berkas/"+ id +"/destroy";
+            window.location = "modul/destroy"+ '/' + id;
 
         }, function(ev) {
             ev.preventDefault();

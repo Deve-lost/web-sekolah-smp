@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Slider')
+@section('title','Galeri')
 
 @section('css')
 <!-- DataTables -->
@@ -16,9 +16,9 @@
         <div class="card m-b-30">
             <div class="card-body">
                 <div class="float-right">
-                    <a href="{{ route('slider.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
+                    <a href="{{ route('galeri.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
                 </div>
-                <h4 class="mt-0 header-title">Slider</h4>
+                <h4 class="mt-0 header-title">Galeri</h4>
                 <br>
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped">
@@ -27,6 +27,7 @@
                             <th width="10">No</th>
                             <th>Thumbnail</th>
                             <th>Judul</th>
+                            <th>Deksripsi</th>
                             <th>Opsi</th>
                         </tr>
                         </thead>
@@ -38,10 +39,13 @@
                                 <img src="{{asset('storage/'.$jquin->path)}}" width="80" class="img-thumbnail" alt="thumbnail">
                             </td>
                             <td>
-                                {{ $jquin->judul }}
+                                {{ Str::limit($jquin->judul, 30, '...') }}
                             </td>
                             <td>
-                                <a href="{{ route('slider.edit', $jquin->id) }}" class="btn btn-sm btn-warning"><i class="ti-pencil"></i></a>
+                                {{ Str::limit($jquin->deskripsi, 30, '...') }}
+                            </td>
+                            <td>
+                                <a href="{{ route('galeri.edit', $jquin->id) }}" class="btn btn-sm btn-warning"><i class="ti-pencil"></i></a>
                                 <a href="#" onclick="destroy({{ $jquin->id }})" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
@@ -72,9 +76,9 @@
 <!-- Destroy -->
 <script>
     function destroy(id) {
-        alertify.confirm("Hapus Slider Ini?", function (ev) {
+        alertify.confirm("Hapus Galeri Ini?", function (ev) {
             ev.preventDefault();
-            window.location = "slider/destroy"+ '/' + id;
+            window.location = "galeri/destroy"+ '/' + id;
 
         }, function(ev) {
             ev.preventDefault();

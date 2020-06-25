@@ -48,37 +48,39 @@ class ModulController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'nama_modul' => 'required|max:191',
+            'kategori' => 'required',
+            'path' => 'mimes:jpg,jpeg,pdf,png,docx,xml'
+        ]);
+
+        $fileOri = $request->file('path');
+       
+        if (empty($request->path)) {
+            $fileMove = $request->fileOri;
+        } else {
+            Storage::delete('public/'.$request->fileOri);
+            $fileMove = Storage::disk('public')->putFile('modul', $fileOri);
+        }
+
+        $neko = [
+            'nama_modul' => $request->nama_modul,
+            'kategori' => $request->kategori,
+            'path' => $fileMove
+        ];
+
+        $jquin = Modul::findOrFail($request->id);
+        $jquin->update($neko);
+
+        return redirect()->back()->with('update','');
     }
 
     /**
@@ -87,8 +89,16 @@ class ModulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Modul $modul)
     {
-        //
+        Storage::delete('public/'.$modul->path);
+        $modul->delete();
+
+        return redirect()->back()->with('destroy','');
+    }
+
+    public function download(Modul $modul)
+    {
+        return response()->download(storage_path('app/public/'.$modul->path));
     }
 }

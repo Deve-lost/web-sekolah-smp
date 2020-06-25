@@ -101,7 +101,7 @@
 						           			<li aria-haspopup="true"><a href="#">Profil Sekolah</a></li>
 						           			<li aria-haspopup="true"><a href="#">Sambutan Kepala Sekolah</a></li>
 						           			<li aria-haspopup="true"><a href="#">Visi Misi</a></li>	
-						           			<li aria-haspopup="true"><a href="#">Extra Kulikuler</a></li>				    
+						           			<li aria-haspopup="true"><a href="#">Extrakurikuler</a></li>				    
 						           		</ul>
 								    </li>	<!-- END DROPDOWN MENU -->
 
@@ -423,7 +423,7 @@
 							<div class="section-title mb-40">
 
 								<!-- Title 	-->	
-								<h4 class="h4-xs">Extra Kulikuler</h4>
+								<h4 class="h4-xs">Extrakurikuler</h4>
 								
 							</div>
 						</div>
@@ -653,7 +653,7 @@
 							<div class="footer-links mb-40">
 							
 								<!-- Title -->
-								<h5 class="h5-md">Extra Kulikuler</h5>
+								<h5 class="h5-md">Extrakurikuler</h5>
 
 								<!-- Footer Links -->
 								<ul class="clearfix">

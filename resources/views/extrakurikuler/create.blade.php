@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Berita dan Informasi Edit Data')
+@section('title','Extrakurikuler Tambah Data')
 
 @section('css')
 <link href="{{asset('admin/plugins/summernote/summernote.css')}}" rel="stylesheet" />
@@ -11,24 +11,22 @@
     <div class="col-12">
         <div class="card m-b-20">
             <div class="card-body">
-                <h4 class="mt-0 header-title">Edit Data</h4>
-                <form action="{{ route('informasi.update', $jquin->id) }}" method="POST" enctype="multipart/form-data">
+                <h4 class="mt-0 header-title">Tambah Data</h4>
+                <form action="{{ route('extrakurikuler.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{ method_field('PATCH') }}
                     <div class="form-group">
-                        <label for="judul">Judul</label>
-                        <input type="text" maxlength="191" class="form-control" name="judul" id="judul" required="" placeholder="Masukkan Judul" value="{{ $jquin->judul }}">
+                        <label for="nama_ek">Nama Kegiatan</label>
+                        <input type="text" maxlength="50" class="form-control" name="nama_ek" id="nama_ek" required="" placeholder="Masukkan Nama Kegiatan">
                     </div>
 
                     <div class="form-group">
-                        <label for="artikel">Artikel</label>
-                        <textarea name="artikel" id="artikel" class="summernote form-control" required="">{!! $jquin->artikel !!}</textarea>
+                        <label for="jml_anggota">Jumlah Anggota</label>
+                        <input type="number" maxlength="11" class="form-control" name="jml_anggota" id="jml_anggota" required="" placeholder="Masukkan Jumlah Anggota">
                     </div>
 
                     <div class="form-group">
-                        <label for="">Thumbnail Sebelumnya</label><br>
-                        <img src="{{ asset('storage/'.$jquin->path) }}" style="width: 130px; height: 100px;" alt="thumbnail" class="img-thumbnail">
-                        <input type="hidden" name="fileOri" value="{{ $jquin->path }}">
+                        <label for="deskripsi">Deskripsi Kegiatan</label>
+                        <textarea name="deskripsi" id="deskripsi" class="summernote form-control" required=""></textarea>
                     </div>
 
                     <div class="form-group">

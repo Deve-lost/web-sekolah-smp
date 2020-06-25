@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Slider')
+@section('title','Extrakurikuler')
 
 @section('css')
 <!-- DataTables -->
@@ -16,9 +16,9 @@
         <div class="card m-b-30">
             <div class="card-body">
                 <div class="float-right">
-                    <a href="{{ route('slider.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
+                    <a href="{{ route('extrakurikuler.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
                 </div>
-                <h4 class="mt-0 header-title">Slider</h4>
+                <h4 class="mt-0 header-title">Extrakurikuler</h4>
                 <br>
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped">
@@ -26,7 +26,8 @@
                         <tr>
                             <th width="10">No</th>
                             <th>Thumbnail</th>
-                            <th>Judul</th>
+                            <th>Nama Kegiatan</th>
+                            <th>Jumlah Anggota</th>
                             <th>Opsi</th>
                         </tr>
                         </thead>
@@ -35,13 +36,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{asset('storage/'.$jquin->path)}}" width="80" class="img-thumbnail" alt="thumbnail">
+                                <img src="{{ (!$jquin->path) ? asset('no-image.png') : asset('storage/'.$jquin->path) }}" width="80" class="img-thumbnail" alt="thumbnail">
                             </td>
+                            <td>{{ $jquin->nama_ek }}</td>
+                            <td>{{ $jquin->jml_anggota }} Anggota</td>
                             <td>
-                                {{ $jquin->judul }}
-                            </td>
-                            <td>
-                                <a href="{{ route('slider.edit', $jquin->id) }}" class="btn btn-sm btn-warning"><i class="ti-pencil"></i></a>
+                                <a href="{{ route('extrakurikuler.show', $jquin->id) }}" class="btn btn-info btn-sm"><i class="ti-eye"></i></a>
+                                <a href="{{ route('extrakurikuler.edit', $jquin->id) }}" class="btn btn-warning btn-sm"><i class="ti-pencil"></i></a>
                                 <a href="#" onclick="destroy({{ $jquin->id }})" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
@@ -60,21 +61,20 @@
 @stop
 
 @section('footer')
-<script src="{{asset('admin/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('admin/pages/datatables.init.js')}}"></script>
 
 <script>
-    $().DataTable();
+$().DataTable();
 </script>
 
 <!-- Destroy -->
 <script>
     function destroy(id) {
-        alertify.confirm("Hapus Slider Ini?", function (ev) {
+        alertify.confirm("Hapus Extrakurikuler Ini?", function (ev) {
             ev.preventDefault();
-            window.location = "slider/destroy"+ '/' + id;
+            window.location = "extrakurikuler/destroy"+ '/' + id;
 
         }, function(ev) {
             ev.preventDefault();

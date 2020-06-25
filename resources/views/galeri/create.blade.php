@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Berita dan Informasi Tambah Data')
+@section('title','Galeri Tambah Data')
 
 @section('css')
 <link href="{{asset('admin/plugins/summernote/summernote.css')}}" rel="stylesheet" />
@@ -12,22 +12,21 @@
         <div class="card m-b-20">
             <div class="card-body">
                 <h4 class="mt-0 header-title">Tambah Data</h4>
-                <form action="{{ route('informasi.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="judul">Judul</label>
-                        <input type="text" maxlength="191" class="form-control" name="judul" id="judul" required="" placeholder="Masukkan Judul">
+                        <input type="text" maxlength="50" class="form-control" name="judul" id="judul" required="" placeholder="Masukkan Judul">
                     </div>
 
                     <div class="form-group">
-                        <label for="artikel">Artikel</label>
-                        <textarea name="artikel" id="artikel" class="summernote form-control" required=""></textarea>
+                        <label for="deskripsi">Deskripsi Singkat</label>
+                        <input type="text" maxlength="191" class="form-control" name="deskripsi" id="deskripsi" placeholder="Masukkan Deskripsi">
                     </div>
 
                     <div class="form-group">
                         <label for="path">Thumbnail</label>
-                        <input type="file" class="filestyle" name="path" id="path" data-input="false" data-buttonname="btn-secondary btn-sm">   
-                        <code class="highlighter-rouge">*Boleh kosong</code>
+                        <input type="file" class="filestyle" name="path" id="path" data-input="false" data-buttonname="btn-secondary btn-sm" required>   
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
@@ -42,23 +41,10 @@
 <script src="{{asset('admin/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js')}}" type="text/javascript"></script>
 <!-- Parsley js -->
 <script type="text/javascript" src="{{asset('admin/plugins/parsleyjs/parsley.min.js')}}"></script>
-<!--Summernote js-->
-<script src="{{asset('admin/plugins/summernote/summernote.min.js')}}"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
         $('form').parsley();
-    });
-</script>
-
-<script>
-    jQuery(document).ready(function(){
-        $('.summernote').summernote({
-            height: 300,                 // Tinggi Editor
-            minHeight: null,             // Mai tinggi editor
-            maxHeight: null,             // Max tinggi editor
-            focus: true                 // set focus edittable
-        });
     });
 </script>
 @stop

@@ -57,10 +57,34 @@ Route::group(['middleware' => 'auth'], function() {
 		]);
 
 		// Modul
-		Route::resource('modul','ModulController', ['except' => ['destroy']]);
+		Route::resource('modul','ModulController', ['only' => ['index','store']]);
 		Route::get('modul/destroy/{modul}', [
 			'uses' => 'ModulController@destroy',
 			'as' => 'modul.destroy'
+		]);
+
+		Route::post('modul/update/', [
+			'uses' => 'ModulController@update',
+			'as' => 'modul.update'
+		]);
+
+		Route::get('download/modul/{modul}/file/modul', [
+			'uses' => 'ModulController@download',
+			'as' => 'modul.download'
+		]);
+
+		// Galeri
+		Route::resource('galeri','GaleriController', ['except' => ['destroy']]);
+		Route::get('galeri/destroy/{galeri}', [
+			'uses' => 'GaleriController@destroy',
+			'as' => 'galeri.destroy'
+		]);
+
+		// Extra Kulikuler
+		Route::resource('extrakurikuler','ExtrakurikulerController', ['except' => ['destroy']]);
+		Route::get('extrakurikuler/destroy/{extrakurikuler}', [
+			'uses' => 'ExtrakurikulerController@destroy',
+			'as' => 'extra.destroy'
 		]);
 
 	});

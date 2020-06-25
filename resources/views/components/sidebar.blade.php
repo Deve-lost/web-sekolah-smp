@@ -17,7 +17,7 @@
                 </li>
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-layout-list-thumb"></i><span> Profil Sekolah <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-layout-list-thumb"></i><span> Profil <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="list-unstyled">
                         <li><a href="">Profil Sekolah</a></li>
                         <li><a href="">Sambutan Kepala Sekolah</a></li>
@@ -39,11 +39,11 @@
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect"><i class="ti-gallery"></i><span> Galeri </span></a>
+                    <a href="{{ route('galeri.index') }}" class="waves-effect"><i class="ti-gallery"></i><span> Galeri </span></a>
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect"><i class="ti-layout-media-right"></i><span> Extra Kulikuler </span></a>
+                    <a href="{{ route('extrakurikuler.index') }}" class="waves-effect"><i class="ti-layout-media-right"></i><span> Extrakurikuler </span></a>
                 </li>
             </ul>
         </div>
