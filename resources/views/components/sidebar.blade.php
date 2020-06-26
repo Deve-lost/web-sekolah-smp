@@ -16,14 +16,8 @@
                     <a href="{{ route('admin.dashboard') }}" class="waves-effect"><i class="dripicons-device-desktop"></i><span> Dashboard </span></a>
                 </li>
 
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-layout-list-thumb"></i><span> Profil <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="">Profil Sekolah</a></li>
-                        <li><a href="">Sambutan Kepala Sekolah</a></li>
-                        <li><a href="">Visi Misi</a></li>
-                        <li><a href="">Kontak</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route('profil-sekolah.index') }}" class="waves-effect"><i class="ti-home"></i><span> Profil Sekolah </span></a>
                 </li>
 
                 <li>
@@ -44,6 +38,10 @@
 
                 <li>
                     <a href="{{ route('extrakurikuler.index') }}" class="waves-effect"><i class="ti-layout-media-right"></i><span> Extrakurikuler </span></a>
+                </li>
+
+                <li>
+                    <a href="{{ route('extrakurikuler.index') }}" class="waves-effect"><i class="ti-email"></i><span> Kontak </span></a>
                 </li>
             </ul>
         </div>

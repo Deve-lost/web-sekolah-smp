@@ -31,9 +31,9 @@
 				    	<!-- DROPDOWN MENU -->
 			          	<li aria-haspopup="true"><a href="#">Profil <span class="wsarrow"></span></a>
     						<ul class="sub-menu">
-			           			<li aria-haspopup="true"><a href="#">Profil Sekolah</a></li>
-			           			<li aria-haspopup="true"><a href="#">Sambutan Kepala Sekolah</a></li>
-			           			<li aria-haspopup="true"><a href="#">Visi Misi</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('profil.sekolah') }}">Profil Sekolah</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('sambutan.kepsek') }}">Sambutan Kepala Sekolah</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('visi.misi') }}">Visi Misi</a></li>
 			           			<li aria-haspopup="true"><a href="#">Extrakurikuler</a></li>
 			           		</ul>
 					    </li>	<!-- END DROPDOWN MENU -->
@@ -42,10 +42,15 @@
 				    	<li class="nl-simple" aria-haspopup="true"><a href="{{ route('berita.info') }}">Berita Dan Informasi</a></li>
 
 				    	<!-- SIMPLE NAVIGATION LINK -->
-				    	<li class="nl-simple" aria-haspopup="true"><a href="#">Modul</a></li>
+				    	<li aria-haspopup="true"><a href="#">Modul <span class="wsarrow"></span></a>
+    						<ul class="sub-menu">
+			           			<li aria-haspopup="true"><a href="{{ route('modul.guru') }}">Modul Guru</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('modul.siswa') }}">Modul Siswa</a></li>
+			           		</ul>
+					    </li>
 
 				    	<!-- SIMPLE NAVIGATION LINK -->
-				    	<li class="nl-simple" aria-haspopup="true"><a href="#">Galeri</a></li>
+				    	<li class="nl-simple" aria-haspopup="true"><a href="{{ route('galeri') }}">Galeri</a></li>
 
 				    	<!-- SIMPLE NAVIGATION LINK -->
 				    	<li class="nl-simple" aria-haspopup="true"><a href="#">Kontak</a></li>

@@ -93,6 +93,12 @@ class InformasiController extends Controller
      */
     public function update(Request $request, Informasi $informasi)
     {
+        $request->validate([
+            'judul' => 'required|max:191',
+            'artikel' => 'required',
+            'path' => 'mimes:jpeg,jpg,png'
+        ]);
+        
         $fileOri = $request->file('path');
        
         if (empty($request->path)) {

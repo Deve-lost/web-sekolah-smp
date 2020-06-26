@@ -92,19 +92,11 @@
 					 	<div class="col-md-7 col-lg-6">
 					 		<div class="txt-block pc-25">
 					 			<!-- Title -->	
-								<h3 class="h3-sm">Sambutan Kepala Sekolah</h3>
+								<h3 class="h3-sm">{{ $profil->sub_kategori }}</h3>
 								<!-- Text -->
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus saepe maiores ab, harum adipisci qui. Magnam, nisi aperiam. Accusantium deserunt accusamus quae deleniti id asperiores facilis provident nam aliquam cupiditate.
+									{!! Str::limit($profil->deskripsi, 1000, '...') !!}
 								</p> 
-								<!-- List -->	
-								<ul class="txt-list mb-15">
-									<li>Nullam rutrum eget nunc varius etiam mollis risus undo</li>
-									<li>Integer congue magna at pretium purus pretium ligula at rutrum risus luctus dolor auctor 
-										ipsum blandit purus			
-									</li>
-									<li>Risus at congue etiam aliquam sapien egestas posuere</li>
-								</ul>
 					 		</div>
 					 	</div>	  <!-- END ABOUT TEXT -->
 
@@ -112,7 +104,7 @@
 					 	<!-- ABOUT IMAGE -->
 						<div class="col-md-5 col-lg-6">
 							<div class="img-block">
-								<img class="img-fluid" src="{{asset('landingpage/images/image-02.png')}}" alt="about-image">
+								<img class="img-fluid" src="{{asset('storage/'.$profil->path)}}" alt="about-image">
 					 		</div>
 						</div>
 					</div>    <!-- End row --> 	
@@ -187,7 +179,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="all-courses-btn">							
-								<a href="categories-list.html" class="btn btn-md btn-rose tra-black-hover">Lihat Semua Berita dan Informasi</a>
+								<a href="{{ route('berita.info') }}" class="btn btn-md btn-rose tra-black-hover">Selengkapnya</a>
 							</div>	
 						</div>
 					</div>
@@ -246,23 +238,14 @@
 						<!-- BANNER TEXT -->
 						<div class="col-md-6">
 							<div class="banner-5-txt">
-
-								<!-- Icon --> 
-								<img src="{{asset('landingpage/images/image-04.png')}}" alt="banner-icon" />
-
 								<!-- Text --> 
 								<div class="b5-txt">
-
 									<!-- Title -->	
 									<h4 class="h4-xs">Modul Guru</h4>
-
 									<!-- Text -->
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius pariatur quaerat, reiciendis quos sed ullam enim dolore temporibus. Voluptatibus, voluptatum.
-									</p>
-
+									<p>Modul pelajaaran untuk guru</p>
 									<!-- Button -->	
-									<a href="become-a-teacher.html" class="btn btn-rose tra-black-hover">Selengkapnya</a>
-
+									<a href="{{ route('modul.guru') }}" class="btn btn-rose tra-black-hover">Selengkapnya</a>
 								</div>
 
 							</div>
@@ -272,23 +255,14 @@
 						<!-- BANNER TEXT -->
 						<div class="col-md-6">
 							<div class="banner-5-txt">
-
-								<!-- Icon --> 
-								<img src="{{asset('landingpage/images/image-05.png')}}" alt="banner-icon" />
-
 								<!-- Text --> 
 								<div class="b5-txt">
-
 									<!-- Title -->	
 									<h4 class="h4-xs">Modul Peserta</h4>
-
 									<!-- Text -->
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius pariatur quaerat, reiciendis quos sed ullam enim dolore temporibus. Voluptatibus, voluptatum.
-									</p>
-
+									<p>Modul pelajaran untuk siswa</p>
 									<!-- Button -->	
-									<a href="courses-list.html" class="btn btn-rose tra-black-hover">Selengkapnya</a>
-
+									<a href="{{ route('modul.siswa') }}" class="btn btn-rose tra-black-hover">Selengkapnya</a>
 								</div>
 							</div>
 						</div>	<!-- END BANNER TEXT -->

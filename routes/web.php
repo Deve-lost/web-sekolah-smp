@@ -33,9 +33,44 @@ Route::get('/', [
 	'uses' => 'SiteController@index',
 ]);
 
+Route::get('profil-sekolah', [
+	'uses' => 'SiteController@profilSekolah',
+	'as' => 'profil.sekolah'
+]);
+
+Route::get('sambutan-kepala-sekolah', [
+	'uses' => 'SiteController@sambutanKepsek',
+	'as' => 'sambutan.kepsek'
+]);
+
+Route::get('visi-misi', [
+	'uses' => 'SiteController@visiMisi',
+	'as' => 'visi.misi'
+]);
+
 Route::get('berita/informasi', [
 	'uses' => 'SiteController@beritaInfo',
 	'as' => 'berita.info'
+]);
+
+Route::get('modul/guru', [
+	'uses' => 'SiteController@mGuru',
+	'as' => 'modul.guru'
+]);
+
+Route::get('modul/siswa', [
+	'uses' => 'SiteController@mSiswa',
+	'as' => 'modul.siswa'
+]);
+
+Route::get('download/modul/{modul}/file/modul', [
+	'uses' => 'ModulController@download',
+	'as' => 'modul.download'
+]);
+
+Route::get('galeri', [
+	'uses' => 'SiteController@galeri',
+	'as' => 'galeri'
 ]);
 
 Route::group(['middleware' => 'auth'], function() {
@@ -46,6 +81,9 @@ Route::group(['middleware' => 'auth'], function() {
 			'uses' => 'DashboardController@admin',
 			'as' => 'admin.dashboard'
 		]);
+
+		// Profil Sekolah
+		Route::resource('profil-sekolah','ProfilSekolahController', ['only' => ['index','edit','update']]);
 
 		// Slider
 		Route::resource('slider','SliderController', ['except' => ['destroy']]);
@@ -71,11 +109,6 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('modul/update/', [
 			'uses' => 'ModulController@update',
 			'as' => 'modul.update'
-		]);
-
-		Route::get('download/modul/{modul}/file/modul', [
-			'uses' => 'ModulController@download',
-			'as' => 'modul.download'
 		]);
 
 		// Galeri

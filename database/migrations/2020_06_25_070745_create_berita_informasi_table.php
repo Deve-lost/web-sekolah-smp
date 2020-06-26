@@ -17,6 +17,7 @@ class CreateBeritaInformasiTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('judul', 191);
+            $table->text('slug');
             $table->longtext('artikel');
             $table->string('path', 191)->nullable();
             $table->timestamps();
