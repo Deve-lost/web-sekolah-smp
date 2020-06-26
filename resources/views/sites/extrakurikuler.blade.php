@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				
   		<!-- SITE TITLE -->
-		<title>Nama Sekolah - Berita dan Informasi</title>
+		<title>Nama Sekolah - Extrakurikuler</title>
 		<x-lpcss></x-lpcss>
 	</head>
 
@@ -37,7 +37,7 @@
 								<nav aria-label="breadcrumb">
 								  	<ol class="breadcrumb">
 								    	<li class="breadcrumb-item"><a href="/">Beranda</a></li>
-								    	<li class="breadcrumb-item active" aria-current="page">Berita dan Informasi</li>
+								    	<li class="breadcrumb-item active" aria-current="page">Extrakurikuler</li>
 								  	</ol>
 								</nav>
 							</div> 
@@ -56,25 +56,24 @@
 					 		<div class="col-lg-9">
 					 			<div class="posts-holder pr-25">
 					 				<!-- ARTICLE #1 -->
-									@forelse($beritaInfo as $bi)
+									@forelse($neko as $jquin)
 					 				<div class="article-3 row d-flex align-items-center b-bottom">
 										<!-- Article Preview -->
 										<div class="col-md-4"> 
-											<img class="img-fluid" src="{{ (!$bi->path) ? asset('no-image.png') : asset('storage/'.$bi->path) }}" alt="article-preview">	
+											<img class="img-fluid" src="{{ (!$jquin->path) ? asset('no-image.png') : asset('storage/'.$jquin->path) }}" alt="article-preview">	
 										</div>					
 											
 										<!-- Article Text -->
 										<div class="col-md-8">	
 											<!-- Title -->
 											<h4 class="h4-sm">
-												<a href="{{ route('slug.bi', $bi->slug) }}">{{ $bi->judul }}</a>
+												<a href="{{ route('slug.ek', $jquin->slug) }}">{{ $jquin->nama_ek }}</a>
 											</h4>
 											<!-- Post Author -->
-											<span>{{ $bi->created_at->format('d F, Y') }} - {{ $bi->user->nama_lengkap }}</span>	
 
 											<!-- Text -->
 											<p>
-												{!! Str::limit($bi->artikel, 100, '...') !!}
+												{!! Str::limit($jquin->deskripsi, 100, '...') !!}
 											</p> 
 										</div>
 									</div>	<!-- END ARTICLE #1 -->	

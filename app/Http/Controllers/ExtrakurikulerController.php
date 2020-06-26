@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Extrakurikuler;
 
 class ExtrakurikulerController extends Controller
@@ -51,8 +52,11 @@ class ExtrakurikulerController extends Controller
             $fileMove = NULL;
         }
 
+        $slug = Str::of($request->nama_ek)->slug('-');
+
         $neko = [
             'nama_ek' => $request->nama_ek,
+            'slug' => $slug,
             'deskripsi' => $request->deskripsi,
             'jml_anggota' => $request->jml_anggota,
             'path' => $fileMove

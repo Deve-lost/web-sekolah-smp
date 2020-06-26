@@ -34,7 +34,7 @@
 			           			<li aria-haspopup="true"><a href="{{ route('profil.sekolah') }}">Profil Sekolah</a></li>
 			           			<li aria-haspopup="true"><a href="{{ route('sambutan.kepsek') }}">Sambutan Kepala Sekolah</a></li>
 			           			<li aria-haspopup="true"><a href="{{ route('visi.misi') }}">Visi Misi</a></li>
-			           			<li aria-haspopup="true"><a href="#">Extrakurikuler</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('extrakurikuler') }}">Extrakurikuler</a></li>
 			           		</ul>
 					    </li>	<!-- END DROPDOWN MENU -->
 

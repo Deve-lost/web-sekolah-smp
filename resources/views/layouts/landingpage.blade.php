@@ -119,10 +119,8 @@
 					<div class="row">	
 						<div class="col-md-12">
 							<div class="section-title title-centered mb-60">
-
 								<!-- Title 	-->	
 								<h3 class="h3-sm">Berita dan Informasi</h3>	
-
 								<!-- Text -->	
 								<p class="p-md">
 									<!-- Coming Soon! >_! -->
@@ -136,7 +134,7 @@
 						@forelse($beritaInfo as $bi)
 						<div class="col-md-6 col-lg-4 col-xl-3">
 							<div class="cbox-1">
-								<a href="course-details.html">
+								<a href="{{ route('slug.bi', $bi->slug) }}">
 									<!-- Image -->
 									<img class="img-fluid" src="{{ (!$bi->path) ? asset('no-image.png') : asset('storage/'.$bi->path) }}" alt="thumbnail" />
 									<!-- Text -->
@@ -206,7 +204,7 @@
 							<!-- CATEGORIE BOX #1 -->
 							@forelse($extrakurikuler as $ek)
 							<div class="c1-box">
-								<a href="">
+								<a href="{{ route('slug.ek', $ek->slug) }}">
 									<div class="c1-box-txt">
 										<h5 class="h5-xs">{{ $ek->nama_ek }}</h5>
 										<p>{{ $ek->jml_anggota }} Anggota</p>

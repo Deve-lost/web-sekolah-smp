@@ -16,6 +16,7 @@ class CreateExtrakurikulerTable extends Migration
         Schema::create('extrakurikuler', function (Blueprint $table) {
             $table->id();
             $table->string('nama_ek', 50);
+            $table->text('slug');
             $table->longtext('deskripsi');
             $table->integer('jml_anggota');
             $table->string('path', 191)->nullable();

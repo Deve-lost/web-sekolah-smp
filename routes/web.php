@@ -48,6 +48,11 @@ Route::get('visi-misi', [
 	'as' => 'visi.misi'
 ]);
 
+Route::get('extrakurikuler', [
+	'uses' => 'SiteController@extrakurikuler',
+	'as' => 'extrakurikuler'
+]);
+
 Route::get('berita/informasi', [
 	'uses' => 'SiteController@beritaInfo',
 	'as' => 'berita.info'
@@ -71,6 +76,17 @@ Route::get('download/modul/{modul}/file/modul', [
 Route::get('galeri', [
 	'uses' => 'SiteController@galeri',
 	'as' => 'galeri'
+]);
+
+// Slug
+Route::get('berita-informasi/{informasi:slug}/read', [
+	'uses' => 'SiteController@slugBeritaInfo',
+	'as' => 'slug.bi'
+]);
+
+Route::get('extrakurikuler/{extrakurikuler:slug}/read', [
+	'uses' => 'SiteController@slugExtrakurikuler',
+	'as' => 'slug.ek'
 ]);
 
 Route::group(['middleware' => 'auth'], function() {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Informasi;
 
 class InformasiController extends Controller
@@ -50,9 +51,12 @@ class InformasiController extends Controller
             $fileMove = NULL;
         }
 
+        $slug = Str::of($request->judul)->slug('-');
+
         $neko = [
             'user_id' => auth()->user()->id,
             'judul' => $request->judul,
+            'slug' => $slug,
             'artikel' => $request->artikel,
             'path' => $fileMove
         ];

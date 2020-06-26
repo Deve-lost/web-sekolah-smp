@@ -22,6 +22,13 @@ class SiteController extends Controller
     	return view('layouts.landingpage', compact('sliders','beritaInfo','extrakurikuler','profil'));
     }
 
+    public function extrakurikuler()
+    {
+        $neko = Extrakurikuler::latest()->paginate(6);
+        
+        return view('sites.extrakurikuler', compact('neko'));
+    }
+
     public function beritaInfo()
     {
     	$beritaInfo = Informasi::latest()->paginate(6);
@@ -70,5 +77,16 @@ class SiteController extends Controller
         $profil = ProfilSekolah::where('id', 3)->first();
 
         return view('sites.visi-misi', compact('profil'));
+    }
+
+    // Slug
+    public function slugBeritaInfo(Informasi $informasi)
+    {
+        return view('sites.berita-info-read', ['jquin' => $informasi]);
+    }
+
+    public function slugExtrakurikuler(Extrakurikuler $extrakurikuler)
+    {
+        return view('sites.extrakurikuler-read', ['jquin' => $extrakurikuler]);
     }
 }
