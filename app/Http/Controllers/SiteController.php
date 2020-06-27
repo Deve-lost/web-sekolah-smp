@@ -9,6 +9,7 @@ use App\Extrakurikuler;
 use App\Modul;
 use App\Galeri;
 use App\ProfilSekolah;
+use App\Kontak;
 
 class SiteController extends Controller
 {
@@ -77,6 +78,13 @@ class SiteController extends Controller
         $profil = ProfilSekolah::where('id', 3)->first();
 
         return view('sites.visi-misi', compact('profil'));
+    }
+
+    public function kontak()
+    {
+        $neko = Kontak::orderBy('nama_kontak', 'ASC')->get();
+
+        return view('sites.kontak', compact('neko'));
     }
 
     // Slug

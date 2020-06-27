@@ -18,8 +18,8 @@
                         {{ auth()->user()->nama_lengkap }}
                     </span>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href=""><i class="ti-user text-muted"></i> Profil</a>
-                    <a class="dropdown-item" href=""><i class="mdi mdi-lock-outline text-muted"></i> Ganti Kata Sandi</a>
+                    <a class="dropdown-item" href="{{ route('profil') }}"><i class="ti-user text-muted"></i> Profil</a>
+                    <a class="dropdown-item" href="{{ route('ganti.pw') }}"><i class="mdi mdi-lock-outline text-muted"></i> Ganti Kata Sandi</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}"><i class="dripicons-exit text-muted"></i> Keluar</a>
                 </div>

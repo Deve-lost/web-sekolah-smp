@@ -11,14 +11,15 @@
 					<!-- <img src="images/logo.png" width="172" height="40" alt="footer-logo"> -->
 					<h3>Logo</h3>
 					<!-- Address -->
-					<p class="mt-25">Singaparna, Tasikmalaya</p> 
-					<p>Jl.</p>
+					<p class="mt-25">
+						{{ $alamat->alamat }}
+					</p> 
 
 					<!-- Phone -->
-					<p>Telp: +62</p>
+					<p>No. Hp/Wa: {{ $alamat->no_hp }}</p>
 					
 					<!-- Email -->
-					<p class="foo-email">Email: <a href="mailto:yourdomain@mail.com">sekolahku@gmail.com</a></p>
+					<p class="foo-email">Email: <a href="mailto:{{ $alamat->email }}">{{ $alamat->email }}</a></p>
 				</div>
 			</div>
 
@@ -29,11 +30,9 @@
 					<h5 class="h5-md">Modul Terbaru</h5>
 					<!-- Footer Links -->
 					<ul class="foo-links clearfix">
-						<li><a href="about.html">About eTreeks</a></li>
-						<li><a href="categories-list.html">Courses Catalog</a></li>
-						<li><a href="reviews.html">Our Testimonials</a></li>
-						<li><a href="pricing.html">Premium Learning</a></li>
-						<li><a href="blog-listing.html">From the Blog</a></li>								
+						@foreach($modul as $mdl)
+						<li><a href="{{ route('modul.siswa') }}">{{ $mdl->nama_modul }}</a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -45,11 +44,9 @@
 					<h5 class="h5-md">Extrakurikuler</h5>
 					<!-- Footer Links -->
 					<ul class="clearfix">
-						<li><a href="#">Business English</a></li>
-						<li><a href="#">Software Development</a></li>
-						<li><a href="#">Finance & Accounting</a></li>
-						<li><a href="#">Health and Fitness</a></li>
-						<li><a href="#">Office Productivity</a></li>				
+						@foreach($extrakurikuler as $kurikuler)
+						<li><a href="{{ route('slug.ek', $kurikuler->slug) }}">{{ $kurikuler->nama_ek }}</a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>	
@@ -67,10 +64,9 @@
 				<!-- FOOTER SOCIALS LINKS -->
 				<div class="col-lg-4 text-right">
 					<ul class="foo-socials text-center clearfix">
-						<li><a href="#" class="ico-facebook"><i class="fab fa-facebook-f"></i></a></li>
-						<li><a href="#" class="ico-twitter"><i class="fab fa-twitter"></i></a></li>	
-						<li><a href="#" class="ico-yahoo"><i class="fab fa-yahoo"></i></a></li>
-						<li><a href="#" class="ico-instagram"><i class="fab fa-instagram"></i></a></li>
+						@foreach($kontak as $sosmed)
+						<li><a href="{{ $sosmed->url }}" target="_blank" class="ico-facebook"><i class="{{ $sosmed->icon }}"></i></a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>

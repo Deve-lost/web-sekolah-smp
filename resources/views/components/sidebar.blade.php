@@ -40,8 +40,12 @@
                     <a href="{{ route('extrakurikuler.index') }}" class="waves-effect"><i class="ti-layout-media-right"></i><span> Extrakurikuler </span></a>
                 </li>
 
-                <li>
-                    <a href="{{ route('extrakurikuler.index') }}" class="waves-effect"><i class="ti-email"></i><span> Kontak </span></a>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-email"></i><span> Kontak <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('kontak.index') }}">Sosial Media</a></li>
+                        <li><a href="{{ route('kontak.alamat') }}">Alamat</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

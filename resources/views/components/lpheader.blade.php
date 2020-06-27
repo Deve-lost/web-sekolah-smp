@@ -53,7 +53,7 @@
 				    	<li class="nl-simple" aria-haspopup="true"><a href="{{ route('galeri') }}">Galeri</a></li>
 
 				    	<!-- SIMPLE NAVIGATION LINK -->
-				    	<li class="nl-simple" aria-haspopup="true"><a href="#">Kontak</a></li>
+				    	<li class="nl-simple" aria-haspopup="true"><a href="{{ route('kontak') }}">Kontak</a></li>
 
 					</ul>
 				</nav>	<!-- END MAIN MENU -->

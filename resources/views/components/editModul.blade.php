@@ -8,6 +8,7 @@
             <div class="modal-body">
                 <form method="POST" action="{{ route('modul.update') }}" class="form" enctype="multipart/form-data">
                 @csrf
+                {{ method_field('PATCH') }}
                 <input type="hidden" name="id" id="id" value>
                 <div class="form-group">
                     <label for="nama">Nama Modul</label>

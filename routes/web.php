@@ -78,6 +78,11 @@ Route::get('galeri', [
 	'as' => 'galeri'
 ]);
 
+Route::get('kontak', [
+	'uses' => 'SiteController@kontak',
+	'as' => 'kontak'
+]);
+
 // Slug
 Route::get('berita-informasi/{informasi:slug}/read', [
 	'uses' => 'SiteController@slugBeritaInfo',
@@ -122,7 +127,7 @@ Route::group(['middleware' => 'auth'], function() {
 			'as' => 'modul.destroy'
 		]);
 
-		Route::post('modul/update/', [
+		Route::patch('modul/update/', [
 			'uses' => 'ModulController@update',
 			'as' => 'modul.update'
 		]);
@@ -141,5 +146,44 @@ Route::group(['middleware' => 'auth'], function() {
 			'as' => 'extra.destroy'
 		]);
 
+		// Kontak
+		Route::resource('kontak','KontakController', ['except' => ['destroy','update']]);
+		Route::patch('kontak/update', [
+			'uses' => 'KontakController@update',
+			'as' => 'kontak.update'
+		]);
+
+		Route::get('kontak/destroy/{kontak}', [
+			'uses' => 'KontakController@destroy',
+			'as' => 'kontak.destroy'
+		]);
+
+		Route::get('alamat', [
+			'uses' => 'KontakController@alamat',
+			'as' => 'kontak.alamat'
+		]);
+
+		// Profil
+		Route::get('profil', [
+			'uses' => 'AuthController@profil',
+			'as' => 'profil'
+		]);	
+
+		// Avatar Update
+		Route::post('avatar/update', [
+			'uses' => 'AuthController@avatarUpdate',
+			'as' => 'avatar.update'
+		]);
+
+		// Ganti Password
+		Route::get('ganti/kata-sandi', [
+			'uses' => 'AuthController@gantiPw',
+			'as' => 'ganti.pw'
+		]);
+
+		Route::post('update/kata-sandi', [
+			'uses' => 'AuthController@updatePw',
+			'as' => 'update.pw'
+		]);
 	});
 });
