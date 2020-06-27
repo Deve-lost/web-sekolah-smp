@@ -31,7 +31,7 @@
 				    	<!-- DROPDOWN MENU -->
 			          	<li aria-haspopup="true"><a href="#">Profil <span class="wsarrow"></span></a>
     						<ul class="sub-menu">
-			           			<li aria-haspopup="true"><a href="{{ route('profil.sekolah') }}">Profil Sekolah</a></li>
+			           			<li aria-haspopup="true"><a href="{{ route('profil.sekolah') }}">Sejarah Singkat</a></li>
 			           			<li aria-haspopup="true"><a href="{{ route('sambutan.kepsek') }}">Sambutan Kepala Sekolah</a></li>
 			           			<li aria-haspopup="true"><a href="{{ route('visi.misi') }}">Visi Misi</a></li>
 			           			<li aria-haspopup="true"><a href="{{ route('extrakurikuler') }}">Extrakurikuler</a></li>

@@ -30,11 +30,19 @@ class SiteController extends Controller
         return view('sites.extrakurikuler', compact('neko'));
     }
 
-    public function beritaInfo()
+    public function beritaInfo(Request $request)
     {
-    	$beritaInfo = Informasi::latest()->paginate(6);
+        if ($request->has('q')) {
+            $beritaInfo = Informasi::where('judul','LIKE','%'.$request->q.'%')->paginate(6);
+            $rBi = Informasi::limit(6)->get();
 
-    	return view('sites.beritaInfo', compact('beritaInfo'));
+            return view('sites.beritaInfo', compact('beritaInfo','rBi'));
+        }
+
+    	$beritaInfo = Informasi::latest()->paginate(6);
+        $rBi = Informasi::limit(6)->get();
+
+    	return view('sites.beritaInfo', compact('beritaInfo','rBi'));
     }
 
     public function mGuru()
@@ -83,8 +91,9 @@ class SiteController extends Controller
     public function kontak()
     {
         $neko = Kontak::orderBy('nama_kontak', 'ASC')->get();
+        $alamat = Kontak::where('alamat', '!=', NULL)->first();
 
-        return view('sites.kontak', compact('neko'));
+        return view('sites.kontak', compact('neko','alamat'));
     }
 
     // Slug

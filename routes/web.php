@@ -83,6 +83,12 @@ Route::get('kontak', [
 	'as' => 'kontak'
 ]);
 
+// Cari
+Route::get('berita/informasi/cari', [
+	'uses' => 'SiteController@beritaInfo',
+	'as' => 'cari.beritaInfo'
+]);
+
 // Slug
 Route::get('berita-informasi/{informasi:slug}/read', [
 	'uses' => 'SiteController@slugBeritaInfo',

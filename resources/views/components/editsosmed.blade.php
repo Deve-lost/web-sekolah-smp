@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label for="icon">Icon</label>
                     <input type="text" class="form-control" name="icon" id="icons" required="" placeholder="Cth: fab fa-instagram" max="20">
-                    <small class="text-info">*Dokumentasi icon : <a href=""></a></small>
+                    <small class="text-info">*Dokumentasi icon : <a href="https://www.w3schools.com/icons/fontawesome5_icons_brands.asp" target="_blank">Klik!</a></small>
                 </div>
 
                 <div class="form-group">
