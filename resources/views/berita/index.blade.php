@@ -39,7 +39,7 @@
                             <td>{{ $jquin->user->nama_lengkap }}</td>
                             <td>{{ $jquin->created_at->format('d F Y') }}</td>
                             <td>
-                                <a href="{{ route('informasi.show', $jquin->id) }}" class="btn btn-info btn-sm"><i class="ti-eye"></i></a>
+                                <a href="{{ route('slug.bi', $jquin->slug) }}" target="_blank" class="btn btn-info btn-sm"><i class="ti-eye"></i></a>
                                 <a href="{{ route('informasi.edit', $jquin->id) }}" class="btn btn-warning btn-sm"><i class="ti-pencil"></i></a>
                                 <a href="#" onclick="destroy({{ $jquin->id }})" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
                             </td>

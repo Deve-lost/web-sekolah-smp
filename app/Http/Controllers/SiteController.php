@@ -23,11 +23,19 @@ class SiteController extends Controller
     	return view('layouts.landingpage', compact('sliders','beritaInfo','extrakurikuler','profil'));
     }
 
-    public function extrakurikuler()
+    public function extrakurikuler(Request $request)
     {
-        $neko = Extrakurikuler::latest()->paginate(6);
+        if ($request->has('q')) {
+            $neko = Extrakurikuler::where('nama_ek', 'LIKE', '%'.$request->q.'%')->paginate(6);
+            $extra = Extrakurikuler::limit(6)->get();
         
-        return view('sites.extrakurikuler', compact('neko'));
+            return view('sites.extrakurikuler', compact('neko','extra'));
+        }
+
+        $neko = Extrakurikuler::latest()->paginate(2);
+        $extra = Extrakurikuler::limit(6)->get();
+        
+        return view('sites.extrakurikuler', compact('neko','extra'));
     }
 
     public function beritaInfo(Request $request)

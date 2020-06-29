@@ -41,7 +41,7 @@
                             <td>{{ $jquin->nama_ek }}</td>
                             <td>{{ $jquin->jml_anggota }} Anggota</td>
                             <td>
-                                <a href="{{ route('extrakurikuler.show', $jquin->id) }}" class="btn btn-info btn-sm"><i class="ti-eye"></i></a>
+                                <a href="{{ route('slug.ek', $jquin->slug) }}" target="_blank" class="btn btn-info btn-sm"><i class="ti-eye"></i></a>
                                 <a href="{{ route('extrakurikuler.edit', $jquin->id) }}" class="btn btn-warning btn-sm"><i class="ti-pencil"></i></a>
                                 <a href="#" onclick="destroy({{ $jquin->id }})" class="btn btn-danger btn-sm"><i class="ti-trash"></i></a>
                             </td>

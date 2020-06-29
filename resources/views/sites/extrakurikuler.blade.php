@@ -107,27 +107,24 @@
 
 					 		<!-- SIDEBAR -->
 							<aside id="sidebar" class="col-lg-3">
-
-
 								<!-- SEARCH FIELD --> 
-								<div id="search-field" class="sidebar-div mb-50">								
+								<div id="search-field" class="sidebar-div mb-50">
+								<form action="{{ route('extrakurikuler') }}" method="GET">
 									<div class="input-group mb-3">
-									  	<input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-field">
+									  	<input type="text" class="form-control" placeholder="Cari..." aria-label="Search" aria-describedby="search-field" name="q">
 									 	<div class="input-group-append">
 									    	<button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
 									 	</div>
 									</div>
+								</form>
 								</div>
 
 								<!-- BLOG CATEGORIES --> 
 								<div class="blog-categories sidebar-div mb-50">
 									<ul class="blog-category-list clearfix">
-										<li><a href="#">eTreeks News</a> <span>(36)</span></li>
-										<li><a href="#">Students & Instructors</a> <span>(81)</span></li>
-										<li><a href="#">Ideas & Opinions</a> <span>(76)</span></li>
-										<li><a href="#">Education Process</a> <span>(143)</span></li>
-										<li><a href="#">eTreeks for Business</a> <span>(24)</span></li>
-										<li><a href="#">Uncategorized </a> <span>(42)</span></li>
+										@foreach($extra as $kurikuler)
+										<li><a href="{{ route('slug.ek', $kurikuler->slug) }}">{{ $kurikuler->nama_ek }}</a></li>
+										@endforeach
 									</ul>
 								</div>
 							</aside>   <!-- END SIDEBAR -->
@@ -144,14 +141,7 @@
 						<div class="row">	
 							<div class="col-md-12">
 								<nav aria-label="Page navigation">
-									<ul class="pagination justify-content-center">
-										<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-									    <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-									    <li class="page-item"><a class="page-link" href="#">2</a> </li>
-									    <li class="page-item"><a class="page-link" href="#">3</a></li>
-									    <li class="page-item"><a class="page-link" href="#">4</a></li>
-									    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-									</ul>	
+									{{ $neko->links() }}
 								</nav>					
 							</div>
 						</div>  <!-- End row -->	

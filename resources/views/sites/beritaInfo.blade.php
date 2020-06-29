@@ -112,14 +112,14 @@
 
 								<!-- SEARCH FIELD --> 
 								<div id="search-field" class="sidebar-div mb-50">								
-										<form action="{{ route('cari.beritaInfo') }}" method="GET">
-									<div class="input-group mb-3">
-										  	<input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-field" name="q">
-									 	<div class="input-group-append">
-									    	<button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-									 	</div>
-									</div>
-										</form>
+									<form action="{{ route('cari.beritaInfo') }}" method="GET">
+										<div class="input-group mb-3">
+										  	<input type="text" class="form-control" placeholder="Cari..." aria-label="Search" aria-describedby="search-field" name="q">
+										 	<div class="input-group-append">
+										    	<button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+										 	</div>
+										</div>
+									</form>
 								</div>
 
 								<!-- BLOG CATEGORIES --> 
