@@ -27,7 +27,7 @@
 					<nav class="wsmenu clearfix">
 					<ul class="wsmenu-list">
 						<!-- SIMPLE NAVIGATION LINK -->
-				    	<li class="nl-simple" aria-haspopup="true"><a href="/">Beranda</a></li>
+				    	<li class="nl-simple" aria-haspopup="true"><a href="{{ getenv('APP_URL') }}">Beranda</a></li>
 				    	<!-- DROPDOWN MENU -->
 			          	<li aria-haspopup="true"><a href="#">Profil <span class="wsarrow"></span></a>
     						<ul class="sub-menu">
