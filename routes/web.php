@@ -193,3 +193,8 @@ Route::group(['middleware' => 'auth'], function() {
 		]);
 	});
 });
+
+Route::get('/clear-cache', function() {
+	$exitCode = Artisan::call('storage:link', []);
+    return 'DONE'; //Return anything
+});
