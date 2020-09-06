@@ -3,4 +3,4 @@
 ##Author
 Roni Surya
 ## CopyRight
-Amico Studio 2020
+-Jquin 2020
